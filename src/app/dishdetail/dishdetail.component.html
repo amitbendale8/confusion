@@ -6,17 +6,17 @@
     fxLayoutGap="10px" 
     fxLayoutGap.xs="0">
 
-  <div fxFlex *ngIf="selectedDish">
+  <div fxFlex *ngIf="dish">
 		<md-card>
 			<md-card-header>
 				<md-card-title>
-					<h3>{{selectedDish.name | uppercase}}</h3>
+					<h3>{{dish.name | uppercase}}</h3>
 				</md-card-title>
 				
 			</md-card-header>
-			<img md-card-image src="{{selectedDish.image}}" alt="{{selectedDish.name}}">
+			<img md-card-image src="{{dish.image}}" alt="{{dish.name}}">
 			<md-card-content>
-				<p>{{selectedDish.description}}</p>
+				<p>{{dish.description}}</p>
 			</md-card-content>
 			<md-card-actions>
 				<button md-button>LIKE</button>
@@ -30,7 +30,7 @@
       
         <h1>COmment</h1>
         <hr>
-      <md-list-item *ngFor="let comment of selectedDish.comments">
+      <md-list-item *ngFor="let comment of dish.comments">
         <p md-line>
           {{comment.comment}}
         </p>
