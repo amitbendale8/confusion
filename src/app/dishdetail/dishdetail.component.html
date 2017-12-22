@@ -24,12 +24,12 @@
 			</md-card-actions>
 		</md-card>
   </div>
-  <div fxFlex="40">
+  <div flex *ngIf="dish"> 
 
     <md-list fxFlex>
       
-        <h1>COmment</h1>
-        <hr>
+        
+        
       <md-list-item *ngFor="let comment of dish.comments">
         <p md-line>
           {{comment.comment}}
