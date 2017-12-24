@@ -6,7 +6,7 @@
     fxLayoutGap="10px" 
     fxLayoutGap.xs="0">
 
-  <div fxFlex *ngIf="dish">
+  <div fxFlex="50" *ngIf="dish" fxFlexOffset="20px">
 		<md-card>
 			<md-card-header>
 				<md-card-title>
@@ -19,12 +19,13 @@
 				<p>{{dish.description}}</p>
 			</md-card-content>
 			<md-card-actions>
+        <button md-button (click) = "goBack()">Back</button>
 				<button md-button>LIKE</button>
 				<button md-button>SHARE</button>
 			</md-card-actions>
 		</md-card>
   </div>
-  <div flex *ngIf="dish"> 
+  <div flex="40" *ngIf="dish"> 
 
     <md-list fxFlex>
       
