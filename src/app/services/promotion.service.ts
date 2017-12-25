@@ -15,7 +15,7 @@ export class PromotionService {
     return PROMOTIONS.filter((promotion) => (promotion.id === id))[0];
   }
 
-  getFeatuedDish(): Promotion{
+  getFeatuedPromotion(): Promotion{
 
     return PROMOTIONS.filter((promotion) => (promotion.featured === true))[0];
   }
