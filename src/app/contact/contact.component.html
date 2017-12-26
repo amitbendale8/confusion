@@ -75,7 +75,8 @@
                 </md-input-container>
               </p>
 
-              <button type="submit" md-button class="background-primary text-floral-white">Submit</button>
+              <button type="submit" md-button class="background-primary text-floral-white"
+               [disable]="feedbackForm.invalid">Submit</button>
         </form>
       </div>
 </div>
