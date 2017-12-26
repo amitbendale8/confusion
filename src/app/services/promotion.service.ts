@@ -7,17 +7,17 @@ export class PromotionService {
 
   constructor() { }
 
-  public getPromotions(): Promotion[]{
-    return PROMOTIONS;
+  public getPromotions(): Promise<Promotion[]>{
+    return Promise.resolve(PROMOTIONS);
   }
 
-  getPromotion(id: number): Promotion{
-    return PROMOTIONS.filter((promotion) => (promotion.id === id))[0];
+  getPromotion(id: number): Promise<Promotion>{
+    return Promise.resolve(PROMOTIONS.filter((promotion) => (promotion.id === id))[0]);
   }
 
-  getFeatuedPromotion(): Promotion{
+  getFeatuedPromotion(): Promise<Promotion>{
 
-    return PROMOTIONS.filter((promotion) => (promotion.featured === true))[0];
+    return Promise.resolve(PROMOTIONS.filter((promotion) => (promotion.featured === true))[0]);
   }
 
 }

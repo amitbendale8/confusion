@@ -37,15 +37,9 @@
       </div>
 
       <div fxFlex fxFlexOffset="20px" class="form-size">
-        <h3>Send us your feedback</h3>
+        <h3>Send us your Feedback</h3>
         <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
-        <md-toolbar md-dialogue-title color="primary">
-          Login
-          <span class="flex-spacer"></span>
-          <button md-button md-dialog-close>&times;</button>
-        </md-toolbar>
-        <p>hello</p>
-        <p> {{ user | json}}</p>
+
         <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
           <p>
             <md-input-container class="half-width"
