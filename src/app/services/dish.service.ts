@@ -8,16 +8,26 @@ export class DishService {
   constructor() { }
 
   public getDishes(): Promise<Dish[]>{
-    return Promise.resolve(DISHES);
+    return new Promise(
+      resolve => {
+        //simulate server latency with 2sec delay
+        setTimeout(() => resolve(DISHES),2000);
+      }
+    );
   }
 
-  getDish(id: number): Promise<Dish>{
-    return Promise.resolve(DISHES.filter((dish) => (dish.id === id))[0]);
+  getDish(id: number): Promise<Dish> {
+    return new Promise(resolve=> {
+      // Simulate server latency with 2 second delay
+        setTimeout(() => resolve(DISHES.filter((dish) => (dish.id === id))[0]), 2000);
+    });
   }
 
-  getFeatuedDish(): Promise<Dish>{
-
-    return Promise.resolve(DISHES.filter((dish) => (dish.featured === true))[0]);
+  getFeaturedDish(): Promise<Dish> {
+    return  new Promise(resolve=> {
+      // Simulate server latency with 2 second delay
+        setTimeout(() => resolve(DISHES.filter((dish) => dish.featured)[0]), 2000);
+    });
   }
 
 }
