@@ -1,30 +1,31 @@
 import { Injectable } from '@angular/core';
 import {Promotion} from '../shared/promotion';
 import {PROMOTIONS} from '../shared/promotions';
+import {Observable} from 'rxjs/Observable';
+
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/delay';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class PromotionService {
 
   constructor() { }
 
-  public getPromotions(): Promise<Promotion[]>{
-    return new Promise(resolve => {
-      setTimeout(() => resolve(PROMOTIONS), 2000);
-    });
+  public getPromotions(): Observable<Promotion[]>{
+    return Observable.of(PROMOTIONS).delay(2000);
+    
     
   }
 
-  getPromotion(id: number): Promise<Promotion>{
-    return new Promise(resolve => {
-      setTimeout(() => resolve(PROMOTIONS.filter((promotion) => (promotion.id === id))[0]),2000);
-    });
+  public getPromotion(id: number): Observable<Promotion>{
+    return Observable.of(PROMOTIONS.filter((promotion) => (promotion.id === id))[0]).delay(2000);
+  
    
   }
 
-  getFeatuedPromotion(): Promise<Promotion>{
-    return new Promise(resolve => {
-      setTimeout(() => resolve(PROMOTIONS.filter((promotion) => (promotion.featured === true))[0]),2000);
-    });
+  public getFeatuedPromotion(): Observable<Promotion>{
+    return Observable.of(PROMOTIONS.filter((promotion) => (promotion.featured === true))[0]).delay(2000);
     
   }
 
