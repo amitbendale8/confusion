@@ -36,24 +36,46 @@
 		</md-card>
   </div>
   <div flex="40" *ngIf="dish"> 
-
     <md-list fxFlex>
-      
-        
-      hindu undivided family
+      <h2>Comment</h2>
       <md-list-item *ngFor="let comment of dish.comments">
         <p md-line>
           {{comment.comment}}
         </p>
         <p md-line>
-          {{comment.rating}} Starts
+          {{comment.rating}} Stars
         </p>
         <p md-line>
           <span>--{{comment.author}}</span>
           <span>{{comment.date | date}}</span>
         </p>
       </md-list-item>
+
+      <form novalidate [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()">
+          <md-input-container class="half-width"
+          dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
+           <input mdInput formControlName="author" placeholder="First Name" type="text" required>
+           <md-hint>
+            <span [hidden]="!(formErrors.author)">
+              {{formErrors.author}}</span>
+           </md-hint>
+         </md-input-container>
+          <p>
+          <md-slider mdInput ng-model="rating" tickInterval="1" class="example-margin" [max]="5"
+              [min]="1" [step]="1" formControlName="rating" thumbLabel
+                  >
+          </md-slider>
+        </p>
+        <p>
+          <md-input-container class="full-width">
+            <textarea mdInput formControlName="comment" placeholder="Your Feedback" rows=12></textarea>
+          </md-input-container>
+        </p>  
+        <button type="submit" md-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
+      </form>
+  
     </md-list>
+    
   </div>
   <div [hidden]="dish">
     <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
