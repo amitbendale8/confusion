@@ -77,8 +77,12 @@
     </md-list>
     
   </div>
-  <div [hidden]="dish">
+  <div [hidden]="dish || errorMessage">
     <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
   </div>
+  <div *ngIf="errMessage">
+		<h2>Error</h2>
+		<h4>{{errMessage}}</h4>
+	</div>
 
 </div>

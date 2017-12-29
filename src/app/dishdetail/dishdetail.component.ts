@@ -23,6 +23,7 @@ export class DishdetailComponent implements OnInit {
   next: number;
   commentForm: FormGroup;
   comment: Comment;
+  errorMessage: string;
 
   formErrors = {
     'author' : '',
@@ -50,7 +51,8 @@ export class DishdetailComponent implements OnInit {
     this.route.params.
     switchMap((params: Params) => this.dishservice.getDish(+params['id'])).
     subscribe(dish => { this.dish = dish;
-                        this.setPrevNext(dish.id) });
+                        this.setPrevNext(dish.id) },
+                      errMess => this.errorMessage = errMess);
     // this.dishservice.getDish(id).
     // subscribe(dish => this.dish = dish);
   }
