@@ -31,6 +31,7 @@ import {baseURL} from './shared/baseurl';
 import {ProcessHTTPMsgService} from './services/process-httpmsg.service';
 import { RestangularModule, Restangular} from 'ngx-restangular';
 import {RestangularConfigFactory } from './shared/restConfig';
+import { HighlighDirective } from './directives/highligh.directive';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {RestangularConfigFactory } from './shared/restConfig';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    HighlighDirective
   ],
   imports: [
     BrowserModule,
